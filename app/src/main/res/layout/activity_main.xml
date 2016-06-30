@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +7,89 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.deepak.partyzing.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.example.deepak.partyzing.MainActivity"
+    android:background="@color/colorTheme"
+    android:weightSum="1">
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Party Planner"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"
+        />
+    <Space
+    android:layout_width="match_parent"
+    android:layout_height="75dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/headline"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:textSize="35dp"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/supportiveLine"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"/>
+
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:gravity="top"
+        android:layout_weight="1.03">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_Pager"
+            android:layout_height="120dp"
+            android:layout_width="250dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"></android.support.v4.view.ViewPager>
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/view_Pager"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="5dp"
+            >
+            <RadioButton android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+            <RadioButton android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </RadioGroup>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:text="Connect With Facebook"
+        android:textColor="@color/colorTheme"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/text"/>
+
+</LinearLayout>

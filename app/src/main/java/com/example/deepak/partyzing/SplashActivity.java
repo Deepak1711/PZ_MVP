@@ -7,21 +7,22 @@ import android.os.Bundle;
 /**
  * Created by deepak on 29/6/16.
  */
-public class Splash extends Activity {
+public class SplashActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        final int WAIT_TIME = 2000;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
+        setContentView(R.layout.activity_splash);
 
 
-        Thread timerThread = new Thread(){
-            public void run(){
-                try{
-                    sleep(2000);
-                }catch(InterruptedException e){
+        Thread timerThread = new Thread() {
+            public void run() {
+                try {
+                    sleep(WAIT_TIME);
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
-                    Intent intent = new Intent(getBaseContext(),MainActivity.class);
+                } finally {
+                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
                     startActivity(intent);
                 }
             }

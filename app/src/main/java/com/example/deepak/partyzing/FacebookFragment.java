@@ -38,14 +38,14 @@ public class FacebookFragment extends Fragment {
     private CallbackManager mCallbackManager;
     private AccessTokenTracker mTokenTracker;
     private ProfileTracker mProfileTracker;
-    String name,id;
-    private FacebookCallback<LoginResult> mCallback=new FacebookCallback<LoginResult>() {
+    String name, id;
+    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
-            AccessToken accessToken=loginResult.getAccessToken();
-            Profile profile=Profile.getCurrentProfile();
-            name=profile.getName();
-            id=profile.getId();
+            AccessToken accessToken = loginResult.getAccessToken();
+            Profile profile = Profile.getCurrentProfile();
+            name = profile.getName();
+            id = profile.getId();
         }
 
         @Override
@@ -59,17 +59,10 @@ public class FacebookFragment extends Fragment {
         }
     };
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
-        View layout=inflater.inflate(R.layout.fragment_facebook,container,false);
-        return layout;
+        return null;
     }
 
     @Override
@@ -77,47 +70,39 @@ public class FacebookFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
-        mCallbackManager=CallbackManager.Factory.create();
+        mCallbackManager = CallbackManager.Factory.create();
 
-
-
-        mTokenTracker=new AccessTokenTracker() {
+        mTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
 
             }
         };
-        mProfileTracker=new ProfileTracker() {
+        mProfileTracker = new ProfileTracker() {
             @Override
             protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-                name=currentProfile.getName();
-                id=currentProfile.getId();
+                name = currentProfile.getName();
+                id = currentProfile.getId();
 
             }
         };
         mTokenTracker.startTracking();
         mProfileTracker.startTracking();
-
-
-
-
     }
-
-
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        List<String> permissionNeeds= Arrays.asList("user_photos", "email", "user_birthday", "user_friends");
-        LoginManager.getInstance().logInWithReadPermissions(this,permissionNeeds);
-        LoginManager.getInstance().registerCallback(mCallbackManager,mCallback);
-    }
+    public void onStart() {
+        super.onStart();
+        List<String> permissionNeeds = Arrays.asList("user_photos", "email", "user_birthday", "user_friends");
+        LoginManager.getInstance().logInWithReadPermissions(this, permissionNeeds);
+        LoginManager.getInstance().registerCallback(mCallbackManager, mCallback);
 
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        mCallbackManager.onActivityResult(requestCode,resultCode,data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

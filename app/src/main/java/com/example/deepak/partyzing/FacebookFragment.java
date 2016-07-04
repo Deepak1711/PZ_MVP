@@ -38,6 +38,7 @@ public class FacebookFragment extends Fragment {
     private CallbackManager mCallbackManager;
     private AccessTokenTracker mTokenTracker;
     private ProfileTracker mProfileTracker;
+    private final String loginPermissions[] = {"user_photos", "email", "user_birthday", "user_friends"};
     String name, id;
     private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
@@ -93,7 +94,6 @@ public class FacebookFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        String loginPermissions[] = getResources().getStringArray(R.array.fb_permissions);
         List<String> permissionNeeds = Arrays.asList(loginPermissions[0], loginPermissions[1], loginPermissions[2], loginPermissions[3]);
         LoginManager.getInstance().logInWithReadPermissions(this, permissionNeeds);
         LoginManager.getInstance().registerCallback(mCallbackManager, mCallback);

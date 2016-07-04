@@ -6,10 +6,9 @@
     <dimen name="textview_small">25dp</dimen>
     <dimen name="textview_normal">35dp</dimen>
 
-    <dimen name="value_10">10dp</dimen>
-    <dimen name="value_20">20dp</dimen>
-    <dimen name="value_30">30dp</dimen>
-    <dimen name="value_40">40dp</dimen>
-    <dimen name="value_50">50dp</dimen>
-    <dimen name="value_60">60dp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="twenty">20dp</dimen>
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="fourty">40dp</dimen>
+    <dimen name="sixty">60dp</dimen>
 </resources>

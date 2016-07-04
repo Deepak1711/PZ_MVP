@@ -3,10 +3,4 @@
     <string name="headline">HeadLine</string>
     <string name="supportiveLine">SupportiveLine</string>
     <string name="facebook_app_id">1705663433020545</string>
-    <string-array name="fb_permissions">
-        <item name="user_photos">user_photos</item>
-        <item name="email">email</item>
-        <item name="user_birthday">user_birthday</item>
-        <item name="user_friends">user_friends</item>
-    </string-array>
 </resources>

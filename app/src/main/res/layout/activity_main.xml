@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTheme"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
 
     tools:context="com.example.deepak.partyzing.MainActivity">
@@ -13,14 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/value_30"
+        android:layout_marginTop="@dimen/thirty"
         android:text="Party Planner"
         android:textColor="@color/white"
         android:textSize="@dimen/textview_normal" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/value_60" />
+        android:layout_height="@dimen/sixty" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/value_20" />
+        android:layout_height="@dimen/twenty" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,13 +51,13 @@
             android:id="@+id/view_Pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/value_40"></android.support.v4.view.ViewPager>
+            android:layout_marginTop="@dimen/fourty"></android.support.v4.view.ViewPager>
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/value_30"
+            android:layout_marginBottom="@dimen/thirty"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -85,7 +85,7 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/value_50"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:text="Connect with Facebook"

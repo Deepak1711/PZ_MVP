@@ -6,24 +6,21 @@
     android:layout_height="match_parent"
     android:background="@color/colorTheme"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/value_16"
-    android:paddingLeft="@dimen/value_64"
-    android:paddingRight="@dimen/value_64"
-    android:paddingTop="@dimen/value_16"
+
     tools:context="com.example.deepak.partyzing.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/value_20"
+        android:layout_marginTop="@dimen/value_30"
         android:text="Party Planner"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_1" />
+        android:textSize="@dimen/textview_normal" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/value_75" />
+        android:layout_height="@dimen/value_60" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,11 +28,11 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/headline"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_1" />
+        android:textSize="@dimen/textview_normal" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/text_size_3" />
+        android:layout_height="@dimen/value_20" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,46 +40,42 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/supportiveLine"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_3" />
+        android:textSize="@dimen/textview_small" />
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_Pager"
-            android:layout_width="@dimen/value_250"
-            android:layout_height="@dimen/value_150"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/value_30"></android.support.v4.view.ViewPager>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/value_40"></android.support.v4.view.ViewPager>
 
         <RadioGroup
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/view_Pager"
-            android:layout_marginLeft="@dimen/value_92"
-            android:layout_marginTop="@dimen/value_25"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/value_30"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:checked="true" />
 
             <RadioButton
                 android:id="@+id/radio2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_height="wrap_content" />
 
             <RadioButton
                 android:id="@+id/radio3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_height="wrap_content" />
 
         </RadioGroup>
 
@@ -92,12 +85,12 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/value_40"
+        android:layout_height="@dimen/value_50"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
-        android:text="Connect With Facebook"
+        android:text="Connect with Facebook"
         android:textAlignment="center"
         android:textColor="@color/colorTheme"
-        android:textSize="@dimen/text_size_3" />
+        android:textSize="@dimen/textview_normal" />
 
 </LinearLayout>

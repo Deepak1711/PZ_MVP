@@ -93,7 +93,8 @@ public class FacebookFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        List<String> permissionNeeds = Arrays.asList("user_photos", "email", "user_birthday", "user_friends");
+        String loginPermissions[] = getResources().getStringArray(R.array.fb_permissions);
+        List<String> permissionNeeds = Arrays.asList(loginPermissions[0], loginPermissions[1], loginPermissions[2], loginPermissions[3]);
         LoginManager.getInstance().logInWithReadPermissions(this, permissionNeeds);
         LoginManager.getInstance().registerCallback(mCallbackManager, mCallback);
 

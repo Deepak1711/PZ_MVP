@@ -27,16 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-
-        textView.setOnClickListener(this);
-        radioButton1.setOnClickListener(this);
-        radioButton2.setOnClickListener(this);
-        radioButton3.setOnClickListener(this);
-        viewPager.addOnPageChangeListener(this);
-
-        adapter = new PagerAdapter(this);
-        viewPager.setAdapter(adapter);
-        int position = viewPager.getCurrentItem();
     }
 
     public void initViews() {
@@ -45,6 +35,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         radioButton1 = (RadioButton) findViewById(R.id.radio1);
         radioButton2 = (RadioButton) findViewById(R.id.radio2);
         radioButton3 = (RadioButton) findViewById(R.id.radio3);
+
+        textView.setOnClickListener(this);
+        radioButton1.setOnClickListener(this);
+        radioButton2.setOnClickListener(this);
+        radioButton3.setOnClickListener(this);
+
+        viewPager.addOnPageChangeListener(this);
+        adapter = new PagerAdapter(this);
+        viewPager.setAdapter(adapter);
     }
 
     @Override
@@ -54,12 +53,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onPageSelected(int position) {
-        if (position == 0) {
-            radioButton1.toggle();
-        } else if (position == 1) {
-            radioButton2.toggle();
-        } else if (position == 2) {
-            radioButton3.toggle();
+        switch (position) {
+            case 0:
+                radioButton1.toggle();
+                break;
+            case 1:
+                radioButton2.toggle();
+                break;
+            case 2:
+                radioButton3.toggle();
+                break;
         }
     }
 
@@ -68,15 +71,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void callFacebook() {
+        FacebookFragment frag = new FacebookFragment();
+        FragmentManager fragment = getSupportFragmentManager();
+        FragmentTransaction transaction = fragment.beginTransaction();
+        transaction.add(R.id.activity_main, frag);
+        transaction.commit();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text:
-                FacebookFragment frag = new FacebookFragment();
-                FragmentManager fragment = getSupportFragmentManager();
-                FragmentTransaction transaction = fragment.beginTransaction();
-                transaction.add(R.id.activity_main, frag);
-                transaction.commit();
+                callFacebook();
                 break;
             case R.id.radio1:
                 viewPager.setCurrentItem(0);

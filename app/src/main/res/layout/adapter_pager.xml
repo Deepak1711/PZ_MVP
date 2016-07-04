@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/image_view1"
-        android:layout_width="@dimen/value_140"
-        android:layout_height="@dimen/value_150"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
 </LinearLayout>

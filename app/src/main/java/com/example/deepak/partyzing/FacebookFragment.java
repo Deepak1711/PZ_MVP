@@ -31,7 +31,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by deepak on 28/6/16.
+ * Created on 28/6/16.
  */
 public class FacebookFragment extends Fragment {
 
@@ -47,8 +47,8 @@ public class FacebookFragment extends Fragment {
             Profile profile = Profile.getCurrentProfile();
             name = profile.getName();
             id = profile.getId();
-            Intent i=new Intent(getActivity(),OccasionActivity.class);
-            startActivity(i);
+            Intent intent = new Intent(getActivity(), OccasionActivity.class);
+            startActivity(intent);
         }
 
         @Override

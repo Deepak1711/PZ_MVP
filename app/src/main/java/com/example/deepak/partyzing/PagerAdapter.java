@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 /**
- * Created by deepak on 30/6/16.
+ * Created on 30/6/16.
  */
 public class PagerAdapter extends android.support.v4.view.PagerAdapter {
     int image_resources[] = {R.drawable.bday, R.drawable.anniversary, R.drawable.graduate};

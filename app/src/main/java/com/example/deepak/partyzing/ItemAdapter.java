@@ -1,37 +1,27 @@
 package com.example.deepak.partyzing;
 
 import android.content.Context;
-import android.support.v4.view.*;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
- * Created by deepak on 13/7/16.
+ * Created on 13/7/16.
  */
-public class ItemAdapter extends android.support.v4.view.PagerAdapter implements ViewPager.OnClickListener {
+public class ItemAdapter extends android.support.v4.view.PagerAdapter {
     private Context ctx;
-    private LayoutInflater layoutInflater;
-    private NextInterface nextInterface;
-    int select = 0;
-    FrameLayout frameLayout1;
-    FrameLayout frameLayout2;
-    FrameLayout frameLayout;
-    FrameLayout tempFrame;
-    TextView text1;
-    TextView text2;
-    String occasion;
-    String title[];
-    CheckBox checkBox;
-    View view;
+    private VisibilityClickabilityInterface visibilityClickabilityInterface;
+    private boolean select = false;
+    private View tempFrame;
+    private String title[];
 
-    public ItemAdapter(Context ctx, NextInterface nextInterface, String title[]) {
+
+    public ItemAdapter(Context ctx, VisibilityClickabilityInterface visibilityClickabilityInterface, String title[]) {
         this.ctx = ctx;
-        this.nextInterface = nextInterface;
+        this.visibilityClickabilityInterface = visibilityClickabilityInterface;
         this.title = title;
     }
 
@@ -51,12 +41,29 @@ public class ItemAdapter extends android.support.v4.view.PagerAdapter implements
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         int tmp = 0;
-        layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view;
+        LayoutInflater layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = layoutInflater.inflate(R.layout.adapter_item, container, false);
-        initViews();
+        FrameLayout frameLayout1 = (FrameLayout) view.findViewById(R.id.flContainer);
+        FrameLayout frameLayout2 = (FrameLayout) view.findViewById(R.id.flContainer1);
+        TextView text1 = (TextView) view.findViewById(R.id.text1);
+        TextView text2 = (TextView) view.findViewById(R.id.text2);
         tmp = position * 2;
+        frameLayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick(v, position * 2);
+            }
+        });
+        frameLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick(v, (position * 2) + 1);
+            }
+        });
+
         frameLayout1.setBackgroundResource(R.drawable.icon_selector);
         frameLayout2.setBackgroundResource(R.drawable.icon_selector);
         text1.setText(title[tmp]);
@@ -65,67 +72,23 @@ public class ItemAdapter extends android.support.v4.view.PagerAdapter implements
         return view;
     }
 
-    public void initViews() {
-        frameLayout1 = (FrameLayout) view.findViewById(R.id.flContainer);
-        frameLayout2 = (FrameLayout) view.findViewById(R.id.flContainer1);
-        text1 = (TextView) view.findViewById(R.id.text1);
-        text2 = (TextView) view.findViewById(R.id.text2);
-        frameLayout1.setOnClickListener(this);
-        frameLayout2.setOnClickListener(this);
-    }
-
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout) object);
     }
 
-
-    @Override
-    public void onClick(View v) {
-        if (frameLayout != null) {
-            tempFrame = frameLayout;
-        }
-        frameLayout = (FrameLayout) v.findViewById(v.getId());
-        frameLayout.setSelected(!frameLayout.isSelected());
-        switch (v.getId()) {
-            case R.id.flContainer:
-                checkBox = (CheckBox) v.findViewById(R.id.checkbox1);
-                text1 = (TextView) v.findViewById(R.id.text1);
-                break;
-            case R.id.flContainer1:
-                checkBox = (CheckBox) v.findViewById(R.id.checkbox2);
-                text1 = (TextView) v.findViewById(R.id.text2);
-                break;
-        }
-        checkBox.setChecked(v.isSelected());
-        if (frameLayout.isSelected() && select == 0) {
-            text1.setTextColor(ctx.getResources().getColor(R.color.white));
-            occasion = text1.getText().toString();
-            select = 1;
-            nextInterface.showNext();
-        } else if (frameLayout.isSelected() && select == 1) {
+    public void onItemClick(View v, int position) {
+        v.setSelected(!v.isSelected());
+        if (v.isSelected() && select == true) {
             tempFrame.setSelected(false);
-            CheckBox tempCheck = null;
-            TextView tempText = null;
-            switch (tempFrame.getId()) {
-                case R.id.flContainer:
-                    tempCheck = (CheckBox) tempFrame.findViewById(R.id.checkbox1);
-                    tempText = (TextView) tempFrame.findViewById(R.id.text1);
-                    break;
-                case R.id.flContainer1:
-                    tempText = (TextView) tempFrame.findViewById(R.id.text2);
-                    tempCheck = (CheckBox) tempFrame.findViewById(R.id.checkbox2);
-                    break;
-            }
-            tempCheck.setChecked(false);
-            tempText.setTextColor(ctx.getResources().getColor(R.color.colorPrimary));
-            text1.setTextColor(ctx.getResources().getColor(R.color.white));
-            occasion = text1.getText().toString();
+        } else if (!v.isSelected()) {
+            select = false;
+            visibilityClickabilityInterface.hideNext();
         } else {
-            text1.setTextColor(ctx.getResources().getColor(R.color.colorPrimary));
-            select = 0;
-            occasion = null;
-            nextInterface.hideNext();
+            select = true;
+            visibilityClickabilityInterface.showNext();
         }
+        tempFrame = v;
+        visibilityClickabilityInterface.onItemClicked(title[position]);
     }
 }

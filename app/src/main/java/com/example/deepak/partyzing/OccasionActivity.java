@@ -1,6 +1,5 @@
 package com.example.deepak.partyzing;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +8,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
- * Created by deepak on 13/7/16.
+ * Created on 13/7/16.
  */
-public class OccasionActivity extends AppCompatActivity implements NextInterface {
-    ViewPager viewPager;
-    ItemAdapter adapter;
-    TextView textView;
-    Animation animFadein, animFadeout;
-    String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
+public class OccasionActivity extends AppCompatActivity implements VisibilityClickabilityInterface {
+    private ViewPager viewPager;
+    private ItemAdapter adapter;
+    private TextView textView;
+    private Animation animFadein, animFadeout;
+    private String item;
+    private String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +42,10 @@ public class OccasionActivity extends AppCompatActivity implements NextInterface
     @Override
     public void hideNext() {
         textView.startAnimation(animFadeout);
+    }
+
+    @Override
+    public void onItemClicked(String item) {
+        this.item = item;
     }
 }

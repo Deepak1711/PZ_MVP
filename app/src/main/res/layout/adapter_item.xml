@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/fourty"
+    android:orientation="vertical"
+    tools:context="com.example.deepak.partyzing.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="@dimen/framelayout_viewpager_size"
+        android:layout_height="@dimen/framelayout_viewpager_size"
+        android:layout_marginLeft="@dimen/ten"
+        android:background="@drawable/icon_selector">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="@dimen/twentyfive"
+            android:layout_height="@dimen/twentyfive"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/five"
+            android:layout_marginTop="@dimen/ten"
+            android:button="@drawable/checkbox_selector"
+            android:checked="false"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="Birthday"
+            android:textColor="@color/colorPrimary" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/flContainer1"
+        android:layout_width="@dimen/framelayout_viewpager_size"
+        android:layout_height="@dimen/framelayout_viewpager_size"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginTop="@dimen/ten"
+        android:background="@drawable/icon_selector">
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/checkbox2"
+            android:layout_width="@dimen/twentyfive"
+            android:layout_height="@dimen/twentyfive"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/five"
+            android:layout_marginTop="@dimen/ten"
+            android:button="@drawable/checkbox_selector"
+            android:checked="false"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="Birthday"
+            android:textColor="@color/colorPrimary" />
+
+    </FrameLayout>
+
+</LinearLayout>

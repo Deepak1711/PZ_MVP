@@ -47,6 +47,8 @@ public class FacebookFragment extends Fragment {
             Profile profile = Profile.getCurrentProfile();
             name = profile.getName();
             id = profile.getId();
+            Intent i=new Intent(getActivity(),OccasionActivity.class);
+            startActivity(i);
         }
 
         @Override

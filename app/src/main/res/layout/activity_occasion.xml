@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/twentyfive"
+        android:paddingLeft="@dimen/twentyfive"
+        android:paddingRight="@dimen/twentyfive"
+        android:paddingTop="@dimen/twentyfive"
+        tools:context="com.example.deepak.partyzing.MainActivity">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/sixtyfive"
+            android:layout_height="@dimen/sixtyfive"
+            android:layout_marginLeft="@dimen/ten"
+            android:src="@drawable/partyzing" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image"
+            android:layout_marginLeft="@dimen/ten"
+            android:text="@string/occasion"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/thirty" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_Pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text"
+            android:layout_marginTop="@dimen/fifteen" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fiftyfive"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:paddingBottom="@dimen/ten"
+        android:paddingRight="@dimen/twentyfive"
+        android:paddingTop="@dimen/ten"
+        android:text="Next"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/thirty"
+        android:visibility="invisible" />
+
+</RelativeLayout>

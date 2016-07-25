@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 /**
- * Created by deepak on 29/6/16.
+ * Created on 29/6/16.
  */
 public class SplashActivity extends Activity {
     @Override
@@ -14,7 +14,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
+        //To hold the splash screen for two seconds
         Thread timerThread = new Thread() {
             public void run() {
                 try {

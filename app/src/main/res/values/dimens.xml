@@ -6,9 +6,17 @@
     <dimen name="textview_small">25dp</dimen>
     <dimen name="textview_normal">35dp</dimen>
 
+    <dimen name="framelayout_viewpager_size">130dp</dimen>
+
+    <dimen name="two">2dp</dimen>
+    <dimen name="five">5dp</dimen>
     <dimen name="ten">10dp</dimen>
+    <dimen name="fifteen">15dp</dimen>
     <dimen name="twenty">20dp</dimen>
+    <dimen name="twentyfive">25dp</dimen>
     <dimen name="thirty">30dp</dimen>
     <dimen name="fourty">40dp</dimen>
+    <dimen name="fiftyfive">55dp</dimen>
     <dimen name="sixty">60dp</dimen>
+    <dimen name="sixtyfive">65dp</dimen>
 </resources>

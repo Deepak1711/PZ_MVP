@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 /**
- * Created by deepak on 30/6/16.
+ * Created on 30/6/16.
  */
 public class PagerAdapter extends android.support.v4.view.PagerAdapter {
     int image_resources[] = {R.drawable.bday, R.drawable.anniversary, R.drawable.graduate};
@@ -34,8 +34,8 @@ public class PagerAdapter extends android.support.v4.view.PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.adapter_pager, container, false);
-        ImageView imageView1 = (ImageView) view.findViewById(R.id.image_view1);
-        imageView1.setImageResource(image_resources[position]);
+        ImageView slideImages = (ImageView) view.findViewById(R.id.slide_images);
+        slideImages.setImageResource(image_resources[position]);
         container.addView(view);
         return view;
     }

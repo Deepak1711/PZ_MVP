@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Partyzing</string>
     <string name="headline">HeadLine</string>
+    <string name="headtag">Party Planner</string>
     <string name="supportiveLine">SupportiveLine</string>
     <string name="facebook_app_id">1705663433020545</string>
     <string name="occasion">What is the Occasion for Party?</string>

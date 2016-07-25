@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/thirty"
-        android:text="Party Planner"
+        android:text="@string/headtag"
         android:textColor="@color/white"
         android:textSize="@dimen/textview_normal" />
 
@@ -61,18 +61,18 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radio1"
+                android:id="@+id/radio_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true" />
 
             <RadioButton
-                android:id="@+id/radio2"
+                android:id="@+id/radio_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <RadioButton
-                android:id="@+id/radio3"
+                android:id="@+id/radio_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -82,7 +82,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/fb_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

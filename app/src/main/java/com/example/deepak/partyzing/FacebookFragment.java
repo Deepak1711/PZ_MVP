@@ -41,7 +41,9 @@ public class FacebookFragment extends Fragment {
     String name, id;
     private final String loginPermissions[] = {"user_photos", "email", "user_birthday", "user_friends"};
 
-    //Callbacks handling methods after facebook API is called
+    /**
+     * Callbacks handling methods after facebook API is called
+     */
     private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
@@ -89,7 +91,9 @@ public class FacebookFragment extends Fragment {
         mProfileTracker.startTracking();             //Initializing Profile tracker
     }
 
-    //Setting login permissions , callbackManager and callback methods
+    /**
+     * Setting login permissions , callbackManager and callback methods
+     */
     @Override
     public void onStart() {
         super.onStart();

@@ -14,7 +14,7 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
     private final String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
     private ViewPager viewPager;
     private ItemAdapter adapter;
-    private TextView textView;
+    private TextView textViewNext;
     private Animation animFadein, animFadeout;
 
     @Override
@@ -33,19 +33,19 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
         viewPager = (ViewPager) findViewById(R.id.view_Pager);
         adapter = new ItemAdapter(this, this, title);
         viewPager.setAdapter(adapter);
-        textView = (TextView) findViewById(R.id.next);
+        textViewNext = (TextView) findViewById(R.id.next);
     }
 
     //Show next button when an item is selected
     @Override
     public void showNext() {
-        textView.startAnimation(animFadein);
+        textViewNext.startAnimation(animFadein);
     }
 
     //Hide next button when no item is selected
     @Override
     public void hideNext() {
-        textView.startAnimation(animFadeout);
+        textViewNext.startAnimation(animFadeout);
     }
 
     @Override

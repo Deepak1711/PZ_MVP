@@ -17,10 +17,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     ViewPager viewPager;
     PagerAdapter adapter;
-    RadioButton radioButton1;
-    RadioButton radioButton2;
-    RadioButton radioButton3;
-    TextView textView;
+    RadioButton radioButtonOne;
+    RadioButton radioButtonTwo;
+    RadioButton radioButtonThree;
+    TextView fbConnect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +31,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //initializing Views,Listeners and adapters
     public void initViews() {
-        textView = (TextView) findViewById(R.id.text);
+        fbConnect = (TextView) findViewById(R.id.fb_connect);
         viewPager = (ViewPager) findViewById(R.id.view_Pager);
-        radioButton1 = (RadioButton) findViewById(R.id.radio1);
-        radioButton2 = (RadioButton) findViewById(R.id.radio2);
-        radioButton3 = (RadioButton) findViewById(R.id.radio3);
+        radioButtonOne = (RadioButton) findViewById(R.id.radio_one);
+        radioButtonTwo = (RadioButton) findViewById(R.id.radio_two);
+        radioButtonThree = (RadioButton) findViewById(R.id.radio_three);
 
-        textView.setOnClickListener(this);
-        radioButton1.setOnClickListener(this);
-        radioButton2.setOnClickListener(this);
-        radioButton3.setOnClickListener(this);
+        fbConnect.setOnClickListener(this);
+        radioButtonOne.setOnClickListener(this);
+        radioButtonTwo.setOnClickListener(this);
+        radioButtonThree.setOnClickListener(this);
 
         viewPager.addOnPageChangeListener(this);
         adapter = new PagerAdapter(this);
@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPageSelected(int position) {
         switch (position) {
             case 0:
-                radioButton1.toggle();
+                radioButtonOne.toggle();
                 break;
             case 1:
-                radioButton2.toggle();
+                radioButtonTwo.toggle();
                 break;
             case 2:
-                radioButton3.toggle();
+                radioButtonThree.toggle();
                 break;
         }
     }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    //Initializing call to facebook API
+    //Initializing call to facebook API for login authentication
     public void callFacebook() {
         FacebookFragment frag = new FacebookFragment();
         FragmentManager fragment = getSupportFragmentManager();
@@ -82,20 +82,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction.commit();
     }
 
-    //Changing the slides on radio button click
+    /**
+     * Changing the slides on radio button click
+     *
+     * @param v contains the View which is clicked
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.text:
-                callFacebook();        //Initializing call to facebook API
+            case R.id.fb_connect:
+                callFacebook();
                 break;
-            case R.id.radio1:
+            case R.id.radio_one:
                 viewPager.setCurrentItem(0);
                 break;
-            case R.id.radio2:
+            case R.id.radio_two:
                 viewPager.setCurrentItem(1);
                 break;
-            case R.id.radio3:
+            case R.id.radio_three:
                 viewPager.setCurrentItem(2);
                 break;
         }

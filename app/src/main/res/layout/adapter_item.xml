@@ -8,19 +8,19 @@
     tools:context="com.example.deepak.partyzing.MainActivity">
 
     <FrameLayout
-        android:id="@+id/flContainer"
+        android:id="@+id/flcontainer_one"
         android:layout_width="@dimen/framelayout_viewpager_size"
         android:layout_height="@dimen/framelayout_viewpager_size"
         android:layout_marginLeft="@dimen/ten">
 
         <ImageView
-            android:id="@+id/image1"
+            android:id="@+id/image_one"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:duplicateParentState="true" />
 
         <CheckBox
-            android:id="@+id/checkbox1"
+            android:id="@+id/checkbox_one"
             android:layout_width="@dimen/twentyfive"
             android:layout_height="@dimen/twentyfive"
             android:layout_gravity="right"
@@ -32,7 +32,7 @@
             android:duplicateParentState="true" />
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/text_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
@@ -42,20 +42,20 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/flContainer1"
+        android:id="@+id/flcontainer_two"
         android:layout_width="@dimen/framelayout_viewpager_size"
         android:layout_height="@dimen/framelayout_viewpager_size"
         android:layout_marginLeft="@dimen/ten"
         android:layout_marginTop="@dimen/ten">
 
         <ImageView
-            android:id="@+id/image2"
+            android:id="@+id/image_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:duplicateParentState="true" />
 
         <CheckBox
-            android:id="@+id/checkbox2"
+            android:id="@+id/checkbox_two"
             android:layout_width="@dimen/twentyfive"
             android:layout_height="@dimen/twentyfive"
             android:layout_gravity="right"
@@ -67,7 +67,7 @@
             android:duplicateParentState="true" />
 
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/text_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
     }
 
+    //initializing Views,Listeners and adapters
     public void initViews() {
         textView = (TextView) findViewById(R.id.text);
         viewPager = (ViewPager) findViewById(R.id.view_Pager);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Changing selected radio button on slide change
     @Override
     public void onPageSelected(int position) {
         switch (position) {
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Initializing call to facebook API
     public void callFacebook() {
         FacebookFragment frag = new FacebookFragment();
         FragmentManager fragment = getSupportFragmentManager();
@@ -79,11 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction.commit();
     }
 
+    //Changing the slides on radio button click
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text:
-                callFacebook();
+                callFacebook();        //Initializing call to facebook API
                 break;
             case R.id.radio1:
                 viewPager.setCurrentItem(0);
@@ -96,5 +100,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
 }

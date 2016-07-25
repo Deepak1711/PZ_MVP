@@ -14,7 +14,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
+        //To hold the splash screen for two seconds
         Thread timerThread = new Thread() {
             public void run() {
                 try {

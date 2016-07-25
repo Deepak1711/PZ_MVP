@@ -11,22 +11,24 @@ import android.widget.TextView;
  * Created on 13/7/16.
  */
 public class OccasionActivity extends AppCompatActivity implements VisibilityClickabilityInterface {
+    private final String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
     private ViewPager viewPager;
     private ItemAdapter adapter;
     private TextView textView;
     private Animation animFadein, animFadeout;
-    private String item;
-    private String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_occasion);
+
         initViews();
-        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);       //Initializing animations
         animFadeout = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
 
+    //initializing Views,Listeners and adapters
     public void initViews() {
         viewPager = (ViewPager) findViewById(R.id.view_Pager);
         adapter = new ItemAdapter(this, this, title);
@@ -34,11 +36,13 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
         textView = (TextView) findViewById(R.id.next);
     }
 
+    //Show next button when an item is selected
     @Override
     public void showNext() {
         textView.startAnimation(animFadein);
     }
 
+    //Hide next button when no item is selected
     @Override
     public void hideNext() {
         textView.startAnimation(animFadeout);
@@ -46,6 +50,5 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
 
     @Override
     public void onItemClicked(String item) {
-        this.item = item;
-    }
+    }//item is unused for now,as it needs to be stored in DB and DB is not integrated yet.
 }

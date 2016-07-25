@@ -11,14 +11,13 @@
         android:id="@+id/flContainer"
         android:layout_width="@dimen/framelayout_viewpager_size"
         android:layout_height="@dimen/framelayout_viewpager_size"
-        android:layout_marginLeft="@dimen/ten"
-        android:background="@drawable/icon_selector">
+        android:layout_marginLeft="@dimen/ten">
 
         <ImageView
             android:id="@+id/image1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:duplicateParentState="true"/>
+            android:duplicateParentState="true" />
 
         <CheckBox
             android:id="@+id/checkbox1"
@@ -28,16 +27,15 @@
             android:layout_marginRight="@dimen/five"
             android:layout_marginTop="@dimen/ten"
             android:button="@drawable/checkbox_selector"
-            android:duplicateParentState="true"
             android:checked="false"
-            android:clickable="false" />
+            android:clickable="false"
+            android:duplicateParentState="true" />
 
         <TextView
             android:id="@+id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:text="Birthday"
             android:duplicateParentState="true"
             android:textColor="@drawable/textcolor_selector" />
 
@@ -48,14 +46,13 @@
         android:layout_width="@dimen/framelayout_viewpager_size"
         android:layout_height="@dimen/framelayout_viewpager_size"
         android:layout_marginLeft="@dimen/ten"
-        android:layout_marginTop="@dimen/ten"
-        android:background="@drawable/icon_selector">
+        android:layout_marginTop="@dimen/ten">
 
         <ImageView
             android:id="@+id/image2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:duplicateParentState="true"/>
+            android:duplicateParentState="true" />
 
         <CheckBox
             android:id="@+id/checkbox2"
@@ -67,16 +64,15 @@
             android:button="@drawable/checkbox_selector"
             android:checked="false"
             android:clickable="false"
-            android:duplicateParentState="true"/>
+            android:duplicateParentState="true" />
 
         <TextView
             android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:text="Birthday"
-            android:textColor="@drawable/textcolor_selector"
-            android:duplicateParentState="true"/>
+            android:duplicateParentState="true"
+            android:textColor="@drawable/textcolor_selector" />
 
     </FrameLayout>
 

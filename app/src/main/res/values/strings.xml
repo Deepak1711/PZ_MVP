@@ -5,5 +5,6 @@
     <string name="supportiveLine">SupportiveLine</string>
     <string name="facebook_app_id">1705663433020545</string>
     <string name="occasion">What is the Occasion for Party?</string>
+    <string name="partyTheme">What is the theme for party?</string>
     <string name="connectivity_error">Some Problem Connecting to facebook</string>
 </resources>

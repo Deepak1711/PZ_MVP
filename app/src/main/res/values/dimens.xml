@@ -8,6 +8,7 @@
 
     <dimen name="framelayout_viewpager_size">130dp</dimen>
 
+    <dimen name="zero">0dp</dimen>
     <dimen name="two">2dp</dimen>
     <dimen name="five">5dp</dimen>
     <dimen name="ten">10dp</dimen>

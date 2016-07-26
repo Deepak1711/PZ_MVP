@@ -19,6 +19,7 @@ public class ProductActivity extends AppCompatActivity implements ShowHideInterf
     private ProductAdapter adapter;
     private TextView textViewNext;
     private TextView textViewPrice;
+    private TextView textViewSkip;
     private Animation animFadein, animFadeout;
     private final String title[] = {"Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Product 6", "Product 7", "Product 8"};
     private final int price[] = {1200, 200, 400, 600, 350, 1500, 1300, 900};
@@ -38,7 +39,9 @@ public class ProductActivity extends AppCompatActivity implements ShowHideInterf
         viewPager.setAdapter(adapter);
         textViewNext = (TextView) findViewById(R.id.next);
         textViewPrice = (TextView) findViewById(R.id.price);
+        textViewSkip = (TextView) findViewById(R.id.skip);
         textViewNext.setOnClickListener(this);
+        textViewSkip.setOnClickListener(this);
     }
 
     //Initializing animations
@@ -74,6 +77,6 @@ public class ProductActivity extends AppCompatActivity implements ShowHideInterf
 
     @Override
     public void onClick(View v) {
-        //start the next activity
+        //start the next activity according to the view clicked
     }
 }

@@ -13,18 +13,31 @@
         android:paddingTop="@dimen/twentyfive"
         tools:context="com.example.deepak.partyzing.MainActivity">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="@dimen/sixtyfive"
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/sixtyfive"
-            android:layout_marginLeft="@dimen/ten"
-            android:src="@drawable/partyzing" />
+            android:layout_marginLeft="@dimen/ten">
+
+            <ImageView
+                android:layout_width="@dimen/sixtyfive"
+                android:layout_height="@dimen/sixtyfive"
+                android:src="@drawable/partyzing" />
+
+            <TextView
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/skip" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image"
+            android:layout_below="@id/relative"
             android:layout_marginLeft="@dimen/ten"
             android:text="@string/products"
             android:textColor="@color/colorPrimary"
@@ -48,7 +61,7 @@
 
         <TextView
             android:id="@+id/price"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="@dimen/fiftyfive"
             android:layout_alignParentBottom="true"
             android:layout_weight="1"
@@ -56,7 +69,6 @@
             android:paddingBottom="@dimen/ten"
             android:paddingLeft="@dimen/twentyfive"
             android:paddingTop="@dimen/ten"
-            android:text=""
             android:textColor="@color/white"
             android:textSize="@dimen/thirty"
             android:visibility="invisible" />
@@ -64,7 +76,7 @@
 
         <TextView
             android:id="@+id/next"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="@dimen/fiftyfive"
             android:layout_alignParentBottom="true"
             android:layout_weight="1"

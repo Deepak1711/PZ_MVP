@@ -1,19 +1,17 @@
 package com.example.deepak.partyzing;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
- * Created on 13/7/16.
+ * Created on 25/7/16.
  */
-public class OccasionActivity extends AppCompatActivity implements VisibilityClickabilityInterface, View.OnClickListener {
-    private final String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
+public class ThemeActivity extends AppCompatActivity implements VisibilityClickabilityInterface {
+    private final String title[] = {"Theme 1", "Theme 2", "Theme 3", "Theme 4", "Theme 5", "Theme 6", "Theme 7", "Not decided"};
     private ViewPager viewPager;
     private ItemAdapter adapter;
     private TextView textViewNext;
@@ -23,7 +21,8 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_occasion_theme);
-
+        TextView headText = (TextView) findViewById(R.id.text);
+        headText.setText(R.string.partyTheme);
         initViews();
     }
 
@@ -33,7 +32,6 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
         adapter = new ItemAdapter(this, this, title);
         viewPager.setAdapter(adapter);
         textViewNext = (TextView) findViewById(R.id.next);
-        textViewNext.setOnClickListener(this);
     }
 
     //Initializing animations
@@ -57,10 +55,5 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
     @Override
     public void onItemClicked(String item) {
     }//item is unused for now,as it needs to be stored in DB and DB is not integrated yet.
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this, ThemeActivity.class);
-        startActivity(intent);
-    }
 }
+

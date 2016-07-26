@@ -9,22 +9,24 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
- * Created on 25/7/16.
+ * Created on 13/7/16.
  */
-public class ThemeActivity extends AppCompatActivity implements ShowHideInterface, View.OnClickListener {
-    private final String title[] = {"Theme 1", "Theme 2", "Theme 3", "Theme 4", "Theme 5", "Theme 6", "Theme 7", "Not decided"};
+public class ProductActivity extends AppCompatActivity implements ShowHideInterface, OnClickInterface, View.OnClickListener {
     private ViewPager viewPager;
-    private ItemAdapter adapter;
+    private ProductAdapter adapter;
     private TextView textViewNext;
+    private TextView textViewPrice;
     private Animation animFadein, animFadeout;
+    private final String title[] = {"Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Product 6", "Product 7", "Product 8"};
+    private final int price[] = {1200, 200, 400, 600, 350, 1500, 1300, 900};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_occasion_theme);
-        TextView headText = (TextView) findViewById(R.id.text);
-        headText.setText(R.string.partyTheme);
+        setContentView(R.layout.activity_product);
         initViews();
         initAnimations();
     }
@@ -32,9 +34,10 @@ public class ThemeActivity extends AppCompatActivity implements ShowHideInterfac
     //initializing Views,Listeners and adapters
     public void initViews() {
         viewPager = (ViewPager) findViewById(R.id.view_Pager);
-        adapter = new ItemAdapter(this, this, title);
+        adapter = new ProductAdapter(this, this, this, title);
         viewPager.setAdapter(adapter);
         textViewNext = (TextView) findViewById(R.id.next);
+        textViewPrice = (TextView) findViewById(R.id.price);
         textViewNext.setOnClickListener(this);
     }
 
@@ -48,20 +51,29 @@ public class ThemeActivity extends AppCompatActivity implements ShowHideInterfac
     @Override
     public void showNext() {
         textViewNext.startAnimation(animFadein);
+        textViewPrice.startAnimation(animFadein);
     }
 
     //Hide next button when no item is selected
     @Override
     public void hideNext() {
         textViewNext.startAnimation(animFadeout);
+        textViewPrice.startAnimation(animFadeout);
+    }
+
+    //updates the total amount for the selected products
+    @Override
+    public void onItemClick() {
+        ArrayList<Integer> selectedPositions = adapter.getSelectedPositions();
+        int totalAmount = 0;
+        for (int position : selectedPositions) {
+            totalAmount = totalAmount + price[position];
+        }
+        textViewPrice.setText(totalAmount + "/-");
     }
 
     @Override
     public void onClick(View v) {
-        int selectedPosition = adapter.getSelectedPosition();        //to get the final selected position
-        String selectedTheme = title[selectedPosition];             //selectedTheme is not used for now,as it need to be stored in DB,which is not integrated yet.
-        Intent intent = new Intent(this, ProductActivity.class);
-        startActivity(intent);
+        //start the next activity
     }
 }
-

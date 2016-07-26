@@ -8,24 +8,26 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created on 13/7/16.
  */
-public class ItemAdapter extends android.support.v4.view.PagerAdapter {
+public class ProductAdapter extends android.support.v4.view.PagerAdapter {
     private final Context ctx;
     private final ShowHideInterface showHideInterface;
+    private final OnClickInterface onClickInterface;
     private final String title[];
     private final float PAGE_WIDTH = 0.45f;
     private final int ONE = 1;
     private final int TWO = 2;
     private boolean select = false;
-    private int selectedItemPosition;
-    private View tempFrame;
+    private ArrayList<Integer> selectedPositions = new ArrayList<>();
 
-
-    public ItemAdapter(Context ctx, ShowHideInterface showHideInterface, String title[]) {
+    public ProductAdapter(Context ctx, ShowHideInterface showHideInterface, OnClickInterface onClickInterface, String title[]) {
         this.ctx = ctx;
         this.showHideInterface = showHideInterface;
+        this.onClickInterface = onClickInterface;
         this.title = title;
     }
 
@@ -79,8 +81,8 @@ public class ItemAdapter extends android.support.v4.view.PagerAdapter {
             });
             if (tmp + ONE < title.length) {
                 FrameLayout frameLayoutTwo = (FrameLayout) view.findViewById(R.id.flcontainer_two);
-                TextView textViewTwo = (TextView) view.findViewById(R.id.text_two);
                 frameLayoutTwo.setBackgroundResource(R.drawable.icon_selector);
+                TextView textViewTwo = (TextView) view.findViewById(R.id.text_two);
                 textViewTwo.setText(title[tmp + ONE]);
                 frameLayoutTwo.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -101,6 +103,7 @@ public class ItemAdapter extends android.support.v4.view.PagerAdapter {
 
     /**
      * Changing the presentation of the item when the item is selected or unselected
+     * and also updates the total amount for the selected products
      *
      * @param v        view which is tapped
      * @param position gives the position of the view tapped,where position count starting from zero
@@ -108,22 +111,31 @@ public class ItemAdapter extends android.support.v4.view.PagerAdapter {
     public void onItemClick(View v, int position) {
         v.setSelected(!v.isSelected());
         if (v.isSelected() && select == true) {
-            tempFrame.setSelected(false);
-            selectedItemPosition = position;
+            selectedPositions.add(position);
+            onClickInterface.onItemClick();
         } else if (!v.isSelected()) {
-            select = false;
-            showHideInterface.hideNext();
-            selectedItemPosition = -1;        //-1 indicates that no item is selected
+            for (int i = 0; i < selectedPositions.size(); i++) {
+                if (selectedPositions.get(i) == position) {
+                    selectedPositions.remove(i);
+                    break;
+                }
+            }
+            if (selectedPositions.isEmpty()) {
+                select = false;
+                showHideInterface.hideNext();
+            } else {
+                onClickInterface.onItemClick();
+            }
         } else {
             select = true;
+            selectedPositions.add(position);
+            onClickInterface.onItemClick();
             showHideInterface.showNext();
-            selectedItemPosition = position;
         }
-        tempFrame = v;
     }
 
-    //return current selected position
-    public int getSelectedPosition() {
-        return selectedItemPosition;
+    //return list of currently selected products
+    public ArrayList<Integer> getSelectedPositions() {
+        return selectedPositions;
     }
 }

@@ -12,7 +12,7 @@ import android.widget.TextView;
 /**
  * Created on 13/7/16.
  */
-public class OccasionActivity extends AppCompatActivity implements VisibilityClickabilityInterface, View.OnClickListener {
+public class OccasionActivity extends AppCompatActivity implements ShowHideInterface, View.OnClickListener {
     private final String title[] = {"Birthday", "Anniversary", "Graduate", "Holiday Party", "Baby Shower", "Graduate", "Birthday Surprise", "Other"};
     private ViewPager viewPager;
     private ItemAdapter adapter;
@@ -25,6 +25,7 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
         setContentView(R.layout.activity_occasion_theme);
 
         initViews();
+        initAnimations();
     }
 
     //initializing Views,Listeners and adapters
@@ -37,7 +38,7 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
     }
 
     //Initializing animations
-    public void initAnims() {
+    public void initAnimations() {
         animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         animFadeout = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
@@ -55,11 +56,9 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
     }
 
     @Override
-    public void onItemClicked(String item) {
-    }//item is unused for now,as it needs to be stored in DB and DB is not integrated yet.
-
-    @Override
     public void onClick(View v) {
+        int selectedPosition = adapter.getSelectedPosition();       //to get the final selected position
+        String selectedOccasion = title[selectedPosition];         //selectedOccasion is not used for now,as it need to be stored in DB,which is not integrated yet.
         Intent intent = new Intent(this, ThemeActivity.class);
         startActivity(intent);
     }

@@ -12,8 +12,8 @@ import android.widget.RelativeLayout;
  * Created on 30/6/16.
  */
 public class PagerAdapter extends android.support.v4.view.PagerAdapter {
-    int image_resources[] = {R.drawable.bday, R.drawable.anniversary, R.drawable.graduate};
-    private Context ctx;
+    private final int image_resources[] = {R.drawable.bday, R.drawable.anniversary, R.drawable.graduate};
+    private final Context ctx;
     private LayoutInflater layoutInflater;
 
     public PagerAdapter(Context ctx) {

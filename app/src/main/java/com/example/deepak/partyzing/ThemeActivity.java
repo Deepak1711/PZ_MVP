@@ -24,9 +24,6 @@ public class ThemeActivity extends AppCompatActivity implements VisibilityClicka
         TextView headText = (TextView) findViewById(R.id.text);
         headText.setText(R.string.partyTheme);
         initViews();
-
-        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);       //Initializing animations
-        animFadeout = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
 
     //initializing Views,Listeners and adapters
@@ -35,6 +32,12 @@ public class ThemeActivity extends AppCompatActivity implements VisibilityClicka
         adapter = new ItemAdapter(this, this, title);
         viewPager.setAdapter(adapter);
         textViewNext = (TextView) findViewById(R.id.next);
+    }
+
+    //Initializing animations
+    public void initAnims() {
+        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        animFadeout = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
 
     //Show next button when an item is selected

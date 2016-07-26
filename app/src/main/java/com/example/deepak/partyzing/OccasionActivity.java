@@ -25,9 +25,6 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
         setContentView(R.layout.activity_occasion_theme);
 
         initViews();
-
-        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);       //Initializing animations
-        animFadeout = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
 
     //initializing Views,Listeners and adapters
@@ -37,6 +34,12 @@ public class OccasionActivity extends AppCompatActivity implements VisibilityCli
         viewPager.setAdapter(adapter);
         textViewNext = (TextView) findViewById(R.id.next);
         textViewNext.setOnClickListener(this);
+    }
+
+    //Initializing animations
+    public void initAnims() {
+        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        animFadeout = AnimationUtils.loadAnimation(this, R.anim.fade_out);
     }
 
     //Show next button when an item is selected

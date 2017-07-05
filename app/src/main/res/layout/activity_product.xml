@@ -11,7 +11,7 @@
         android:paddingLeft="@dimen/twentyfive"
         android:paddingRight="@dimen/twentyfive"
         android:paddingTop="@dimen/twentyfive"
-        tools:context="com.example.deepak.partyzing.MainActivity">
+        tools:context=".View.MainActivity">
 
         <RelativeLayout
             android:id="@+id/rl_container"
@@ -20,6 +20,7 @@
             android:layout_marginLeft="@dimen/ten">
 
             <ImageView
+                android:id="@+id/image"
                 android:layout_width="@dimen/sixtyfive"
                 android:layout_height="@dimen/sixtyfive"
                 android:src="@drawable/partyzing" />

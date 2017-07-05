@@ -1,4 +1,4 @@
-package com.example.deepak.partyzing;
+package com.example.deepak.partyzing.View;
 
 
 import android.content.Intent;
@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.deepak.partyzing.OccasionActivity;
+import com.example.deepak.partyzing.Presenter.FBPresenter;
+import com.example.deepak.partyzing.R;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -35,11 +38,16 @@ import java.util.List;
  * Created on 28/6/16.
  */
 public class FacebookFragment extends Fragment {
+    private final FBPresenter fbPresenter;
     private CallbackManager mCallbackManager;
     private AccessTokenTracker mTokenTracker;
     private ProfileTracker mProfileTracker;
     String name, id;
     private final String loginPermissions[] = {"user_photos", "email", "user_birthday", "user_friends"};
+
+    public FacebookFragment() {
+        fbPresenter = new FBPresenter();
+    }
 
     /**
      * Callbacks handling methods after facebook API is called
@@ -49,8 +57,7 @@ public class FacebookFragment extends Fragment {
         public void onSuccess(LoginResult loginResult) {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
-            name = profile.getName();  //name and id are not used as for now
-            id = profile.getId();      //they need to be stored in DB
+            //fbPresenter.setCurrentProfile(profile);
             Intent intent = new Intent(getActivity(), OccasionActivity.class);       //starting with next screen on successful login
             startActivity(intent);
         }
@@ -82,9 +89,7 @@ public class FacebookFragment extends Fragment {
         mProfileTracker = new ProfileTracker() {
             @Override
             protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-                name = currentProfile.getName();     //name and id are not used as for now
-                id = currentProfile.getId();         //as they need to be stored in DB
-
+                fbPresenter.setCurrentProfile(currentProfile);
             }
         };
         mTokenTracker.startTracking();               //Initializing Token tracker

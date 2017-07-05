@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/fourty"
     android:orientation="vertical"
-    tools:context="com.example.deepak.partyzing.MainActivity">
+    tools:context=".View.MainActivity">
 
     <FrameLayout
         android:id="@+id/flcontainer_one"

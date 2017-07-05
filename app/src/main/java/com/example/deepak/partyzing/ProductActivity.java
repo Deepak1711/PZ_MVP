@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.support.test.espresso.contrib.CountingIdlingResource;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,11 @@ public class ProductActivity extends AppCompatActivity implements ShowHideInterf
     private Animation animFadein, animFadeout;
     private final String title[] = {"Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Product 6", "Product 7", "Product 8"};
     private final int price[] = {1200, 200, 400, 600, 350, 1500, 1300, 900};
+    CountingIdlingResource idlingResource;
+
+    public void setIdlingResource(CountingIdlingResource idlingResource){
+        this.idlingResource = idlingResource;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +60,10 @@ public class ProductActivity extends AppCompatActivity implements ShowHideInterf
     //Show next button when an item is selected
     @Override
     public void showNext() {
+        idlingResource.increment();
         textViewNext.startAnimation(animFadein);
         textViewPrice.startAnimation(animFadein);
+        idlingResource.decrement();
     }
 
     //Hide next button when no item is selected
@@ -73,6 +82,14 @@ public class ProductActivity extends AppCompatActivity implements ShowHideInterf
             totalAmount = totalAmount + price[position];
         }
         textViewPrice.setText(totalAmount + "/-");
+    }
+
+    public String[] getProductsTitle(){
+        return title;
+    }
+
+    public int getPrice(){
+        return price[0];
     }
 
     @Override

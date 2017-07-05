@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context="com.example.deepak.partyzing.MainActivity">
+    tools:context=".View.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"

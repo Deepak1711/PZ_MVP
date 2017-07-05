@@ -1,18 +1,16 @@
-package com.example.deepak.partyzing;
+package com.example.deepak.partyzing.View;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.hardware.camera2.params.Face;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.example.deepak.partyzing.PagerAdapter;
+import com.example.deepak.partyzing.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     ViewPager viewPager;

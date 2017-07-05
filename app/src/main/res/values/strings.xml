@@ -9,4 +9,5 @@
     <string name="products">Order party products to bring zing in the party</string>
     <string name="skip">Skip</string>
     <string name="connectivity_error">Some Problem Connecting to facebook</string>
+    <string name="zero">0</string>
 </resources>

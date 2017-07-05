@@ -12,7 +12,7 @@
         android:paddingLeft="@dimen/twentyfive"
         android:paddingRight="@dimen/twentyfive"
         android:paddingTop="@dimen/twentyfive"
-        tools:context="com.example.deepak.partyzing.MainActivity">
+        tools:context=".View.MainActivity">
 
         <ImageView
             android:id="@+id/image"
